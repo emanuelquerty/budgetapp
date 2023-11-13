@@ -25,6 +25,18 @@ jobs:
         name: npm run build
         run:
           npm run build
+      - 
+        name: Create public folder
+        run:
+          mkdir public
+      - 
+        name: Copy build folder
+        run: cp -r dist/* public
+      - 
+        name: List root
+        run: 
+          ls
+
   publish:
     runs-on: ubuntu-latest
     steps:
@@ -36,6 +48,6 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: main
-          build_dir: dist
+          build_dir: public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

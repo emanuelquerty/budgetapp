@@ -21,6 +21,8 @@ jobs:
         name: npm install
         run:
           npm install
+        name: npm run build
+        run:
           npm run build
   publish:
     runs-on: ubuntu-latest
